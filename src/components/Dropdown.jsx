@@ -1,11 +1,9 @@
-import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
 
-function App() {
+const Dropdown = () => {
   const [countries, setCountries] = useState([]);
-
-  // API URL: https://disease.sh/v3/covid-19/countries
+  const [country, setCountry] = useState("Worldwide");
 
   useEffect(() => {
     // The code inside here will run once when the component
@@ -26,40 +24,25 @@ function App() {
     getCountriesName();
   }, []);
 
+  const onCountryChange = (event) => {
+    const countryCode = event.target.value;
+    setCountry(countryCode);
+  };
+
   return (
     <div className="app">
-      <div className="app__header">
-        <h1>COVID 19 Tracker</h1>
-
+      
         <FormControl className="app__dropdown">
-          <Select variant="outlined" value="abc">
-            {/* LOOP THROUGH THE COUNTRIES AND ADD THEM AS MenuItems */}
-
+          <Select variant="outlined" value={country} onChange={onCountryChange}>
+            <MenuItem value="worldwide">Worldwide</MenuItem>
             {countries.map((country) => {
               return <MenuItem value={country.value}>{country.name}</MenuItem>;
             })}
-
-            {/* <MenuItem value="worldwide">WorldWide</MenuItem>
-            <MenuItem value="worldwide">Op 2</MenuItem>
-            <MenuItem value="worldwide">option three</MenuItem>
-            <MenuItem value="worldwide">option 4 here</MenuItem> */}
           </Select>
         </FormControl>
-      </div>
 
-      {/* HEADER */}
-      {/* TITLE + SELECT INPUT DROPDOWN FIELDS */}
-
-      {/* INFO BOXES */}
-      {/* INFO BOXES */}
-      {/* INFO BOXES */}
-
-      {/* TABLE */}
-      {/* GRAPH */}
-
-      {/* MAP */}
     </div>
   );
-}
+};
 
-export default App;
+export default Dropdown;
