@@ -10,6 +10,7 @@ import {
   Select,
 } from "@material-ui/core";
 import Table from "./components/Table";
+import sortData from "./util";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -39,7 +40,8 @@ function App() {
             value: country.countryInfo.iso2,
           }));
 
-          setTableData(data);
+          const sortedData = sortData(data);
+          setTableData(sortedData);
           setCountries(countries);
         });
     };
