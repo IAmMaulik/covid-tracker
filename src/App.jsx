@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import Table from "./components/Table";
 import sortData from "./util";
+import Linegraph from "./components/Linegraph";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -65,8 +66,6 @@ function App() {
       });
   };
 
-  console.log("Country Info >>>>>>>", countryInfo);
-
   return (
     <div className="app">
       <div className="app__left">
@@ -120,6 +119,7 @@ function App() {
 
           {/* GRAPH */}
           <h3>Worldwide new cases</h3>
+          <Linegraph casesType="cases"/>
         </CardContent>
       </Card>
     </div>
