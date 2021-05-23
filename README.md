@@ -1,5 +1,15 @@
 # Getting Started with Create React App
 
+# COVID TRACKER
+
+A live demo of this website is available [here](https://covid-tracker-maulik.web.app/)
+
+This is a fully functional and beautiful COVID-19 tracker app. It gets the data from [the disease.sh API](https://disease.sh). It can show the recovered cases, deaths and active cases. It also has a map that shows the number of cases in proportion to the circles.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
